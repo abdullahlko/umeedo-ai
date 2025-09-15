@@ -6,6 +6,7 @@ import user_icon from './user_icon.png'
 import message_icon from './message_icon.png'
 import send_icon from './send_icon.png'
 import umeedo_logo from './umeedo_logo.png'
+import umeedo_logo_100x100 from './umeedo_logo_100x100.png'
 
 export const assets = {
     menu_icon,
@@ -15,5 +16,6 @@ export const assets = {
     user_icon,
     message_icon,
     send_icon,
-    umeedo_logo
+    umeedo_logo,
+    umeedo_logo_100x100
 }

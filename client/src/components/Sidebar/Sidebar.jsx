@@ -1,9 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./Sidebar.css";
 import { assets } from "../../assets/assets";
+import { Context } from "../../context/Context";
 
 const Sidebar = () => {
   const [extended, setExtended] = useState(false);
+  const { prevPrompts, messageRefs, newChat } = useContext(Context);
+
+  const scrollToMessage = (index) => {
+    messageRefs.current[index]?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="sidebar">
       <div className="top">
@@ -14,26 +21,31 @@ const Sidebar = () => {
           alt="menu icon"
         />
 
-        <div className="new-chat">
+        <div onClick={() => newChat()} className="new-chat">
           <img src={assets.plus_icon} alt="plus icon" />
           {extended ? <p>New Chat</p> : null}
         </div>
 
-        {extended ? (
+        {extended && (
           <div className="recent">
             <p className="recent-title">Recent</p>
-
-            <div className="recent-entry">
-              <img src={assets.message_icon} alt="" />
-              <p>you know that when i...</p>
-            </div>
+            {prevPrompts.map((item, index) => (
+              <div
+                key={index}
+                className="recent-entry"
+                onClick={() => scrollToMessage(index)}
+              >
+                <img src={assets.message_icon} alt="msg" />
+                <p>{item.user.slice(0, 18)}...</p>
+              </div>
+            ))}
           </div>
-        ) : null}
+        )}
       </div>
 
       <div className="bottom">
         <div className="bottom-item recent-entry">
-          <img src={assets.setting_icon} alt="" />
+          <img src={assets.setting_icon} alt="settings" />
           {extended ? <p>Settings</p> : null}
         </div>
       </div>
