@@ -23,6 +23,7 @@
   display: flex; 
   align-items: center; 
   gap: 0.3em;
+  cursor: pointer;
 }
 
 .logo-text {
@@ -75,6 +76,11 @@
   background-color: #f0f4f9;
   padding: 10px 20px;
   border-radius: 50px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-box:focus-within {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .search-box img {
@@ -122,7 +128,7 @@
 
 .result img {
   width: 40px;
-  border-radius: 50%;
+  border-radius: 47%;
 }
 
 .result-data {

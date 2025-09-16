@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { assets } from "../../assets/assets";
 import "./ChatWindow.css";
 import { Context } from "../../context/Context";
+import { useNavigate } from "react-router-dom";
 
 const Main = () => {
   const {
@@ -13,6 +14,8 @@ const Main = () => {
     messageRefs,
     loading,
   } = useContext(Context);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     messageRefs.current = messageRefs.current.slice(0, prevPrompts.length);
@@ -41,7 +44,7 @@ const Main = () => {
   return (
     <div className="main">
       <div className="nav">
-        <div className="left-group">
+        <div className="left-group"onClick={() => navigate("/")} > 
           <img src={assets.umeedo_logo} alt="U" />
           <p className="logo-text">meedo</p>
         </div>
@@ -71,7 +74,7 @@ const Main = () => {
                   <p>{entry.user}</p>
                 </div>
                 <div className="ai-msg">
-                  <img src={assets.umeedo_bot1} alt="Umeedo bot" />
+                  <img src={assets.umeedo_bot_2} alt="Umeedo bot" />
                   <p dangerouslySetInnerHTML={{ __html: entry.ai }}></p>
                 </div>
               </div>
