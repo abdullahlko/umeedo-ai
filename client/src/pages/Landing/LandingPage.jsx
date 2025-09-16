@@ -4,6 +4,7 @@ import "./LandingPage.css";
 import UmeedoIntro from "../../components/Section1LandingPage/UmeedoIntro";
 import Header from "../../components/Header/Header"
 import Footer from "../../components/Footer/Footer";
+import UmeedoFeatures from "../../components/Section2LandingPage/UmeedoFeatures";
 
 const LandingPage = () => {
   return (
@@ -11,6 +12,7 @@ const LandingPage = () => {
       <Header/>
       <Hero />
       <UmeedoIntro/>
+      <UmeedoFeatures/>
       <Footer/>
     </div>
   );
