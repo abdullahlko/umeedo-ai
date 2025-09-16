@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { assets } from "../../assets/assets";
-import "./Main.css";
+import "./ChatWindow.css";
 import { Context } from "../../context/Context";
 
 const Main = () => {
