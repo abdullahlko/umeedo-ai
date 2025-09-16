@@ -3,6 +3,7 @@ import Hero from "../../components/Hero/Hero";
 import "./LandingPage.css";
 import UmeedoIntro from "../../components/Section1LandingPage/UmeedoIntro";
 import Header from "../../components/Header/Header"
+import Footer from "../../components/Footer/Footer";
 
 const LandingPage = () => {
   return (
@@ -10,6 +11,7 @@ const LandingPage = () => {
       <Header/>
       <Hero />
       <UmeedoIntro/>
+      <Footer/>
     </div>
   );
 };

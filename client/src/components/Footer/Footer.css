@@ -1,0 +1,19 @@
+.app-footer {
+  background-color: #f0f4f9;
+  padding: 25px 20px;
+  text-align: center;
+  color: #555;
+  border-top: 1px solid #e0e0e0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-content {
+  max-width: 900px;
+  margin: auto;
+}
+
+.footer-text {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.5;
+}
