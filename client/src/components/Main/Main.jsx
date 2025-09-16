@@ -71,7 +71,7 @@ const Main = () => {
                   <p>{entry.user}</p>
                 </div>
                 <div className="ai-msg">
-                  <img src={assets.umeedo_logo_100x100} alt="Ummedo Logo" />
+                  <img src={assets.umeedo_bot1} alt="Umeedo bot" />
                   <p dangerouslySetInnerHTML={{ __html: entry.ai }}></p>
                 </div>
               </div>
