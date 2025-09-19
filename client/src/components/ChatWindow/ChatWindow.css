@@ -39,7 +39,8 @@
 
 .main .greet {
   margin: 50px 0px;
-  font-size: 56px;
+  /* font-size: 56px; */
+   font-size: 3vw;
   color: #585858;
   font-weight: 500;
   padding: 20px;
@@ -240,5 +241,24 @@
 .chat-container::-webkit-scrollbar-thumb {
   background-color: rgba(0,0,0,0.2);
   border-radius: 3px;
+}
+
+.greet {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.greet-bot {
+  width: 150px;
+  height: auto;
+  /* border-radius: 50%; */
+  animation: floatBot 3s ease-in-out infinite;
+}
+
+@keyframes floatBot {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
 }
 

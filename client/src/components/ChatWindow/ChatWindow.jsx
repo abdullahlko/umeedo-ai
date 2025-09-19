@@ -21,7 +21,13 @@ const Main = () => {
     messageRefs.current = messageRefs.current.slice(0, prevPrompts.length);
   }, [prevPrompts.length, messageRefs]);
 
-  const greetingOpeners = ["Hi there!", "Welcome back!", "Hey!", "Hello!", "Hi!"];
+  const greetingOpeners = [
+    "Hi there!",
+    "Welcome!",
+    "Hey!",
+    "Hello!",
+    "Hi!",
+  ];
   const supportiveStatements = [
     "I'm here to listen.",
     "Let's talk whenever you're ready.",
@@ -36,7 +42,10 @@ const Main = () => {
     "How are you feeling today?",
   ];
 
-  const randomIndex = React.useMemo(() => Math.floor(Math.random() * greetingOpeners.length), []);
+  const randomIndex = React.useMemo(
+    () => Math.floor(Math.random() * greetingOpeners.length),
+    []
+  );
   const selectedGreeting = greetingOpeners[randomIndex];
   const selectedStatement = supportiveStatements[randomIndex];
   const selectedPlaceholder = placeholders[randomIndex];
@@ -44,7 +53,7 @@ const Main = () => {
   return (
     <div className="main">
       <div className="nav">
-        <div className="left-group"onClick={() => navigate("/")} > 
+        <div className="left-group" onClick={() => navigate("/")}>
           <img src={assets.umeedo_logo} alt="U" />
           <p className="logo-text">meedo</p>
         </div>
@@ -54,6 +63,7 @@ const Main = () => {
       <div className="main-container">
         {!prevPrompts.length ? (
           <div className="greet">
+            <img className="greet-bot" src={assets.umeedo_bot_1} alt="" />
             <p>
               <span>{selectedGreeting}</span>
               <br />
@@ -93,7 +103,9 @@ const Main = () => {
             />
             <div>
               <img src={assets.mic_icon} alt="" />
-              {input ? <img onClick={onSent} src={assets.send_icon} alt="" /> : null}
+              {input ? (
+                <img onClick={onSent} src={assets.send_icon} alt="" />
+              ) : null}
             </div>
           </div>
           <p className="disclaimer">

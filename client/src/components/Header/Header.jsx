@@ -3,9 +3,17 @@ import { assets } from "../../assets/assets";
 import "./Header.css";
 
 const Header = () => {
-  const [showHeader, setShowHeader] = useState(false);
+  
+  const alwaysVisibleRoutes = ["/mood-tracker"];
+  const isAlwaysVisible = alwaysVisibleRoutes.includes(window.location.pathname);
+
+  
+  const [showHeader, setShowHeader] = useState(isAlwaysVisible);
 
   useEffect(() => {
+    
+    if (isAlwaysVisible) return;
+
     const handleScroll = () => {
       const heroHeight = document.getElementById("hero")?.offsetHeight || 0;
       if (window.scrollY > heroHeight) {
@@ -16,9 +24,8 @@ const Header = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isAlwaysVisible]);
 
   if (!showHeader) return null;
 
