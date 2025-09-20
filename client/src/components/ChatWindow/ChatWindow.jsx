@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { assets } from "../../assets/assets";
 import "./ChatWindow.css";
-import { Context } from "../../context/Context";
+import { Context } from "../../context/ChatContext";
 import { useNavigate } from "react-router-dom";
 
 const Main = () => {
