@@ -28,6 +28,7 @@ const Main = () => {
     "Hello!",
     "Hi!",
   ];
+
   const supportiveStatements = [
     "I'm here to listen.",
     "Let's talk whenever you're ready.",
@@ -35,6 +36,15 @@ const Main = () => {
     "I'm here with you.",
     "Take your time, I'm ready to listen.",
   ];
+
+  const reassuranceMessages = [
+    "🛡️ This is your safe space to talk openly.",
+    "🤝 What you share here stays just between us.",
+    "🌱 Everything you share is kept private.",
+    "💬 You're in a private space — feel free to share at your pace.",
+    "🔒 Your thoughts are safe here with me.",
+  ];
+
   const placeholders = [
     "What's on your mind?",
     "I'm here to listen...",
@@ -46,9 +56,11 @@ const Main = () => {
     () => Math.floor(Math.random() * greetingOpeners.length),
     []
   );
+
   const selectedGreeting = greetingOpeners[randomIndex];
   const selectedStatement = supportiveStatements[randomIndex];
   const selectedPlaceholder = placeholders[randomIndex];
+  const selectedReassurance = reassuranceMessages[randomIndex];
 
   return (
     <div className="main">
@@ -62,14 +74,19 @@ const Main = () => {
 
       <div className="main-container">
         {!prevPrompts.length ? (
-          <div className="greet">
-            <img className="greet-bot" src={assets.umeedo_bot_1} alt="" />
-            <p>
-              <span>{selectedGreeting}</span>
-              <br />
-              {selectedStatement}
-            </p>
-          </div>
+          <>
+            <div className="greet">
+              <img className="greet-bot" src={assets.umeedo_bot_1} alt="" />
+              <p>
+                <span>{selectedGreeting}</span>
+                <br />
+                {selectedStatement}
+              </p>
+            </div>
+            <div className="reassurance-message">
+              <p>{selectedReassurance}</p>
+            </div>
+          </>
         ) : (
           <div className="result chat-container">
             {prevPrompts.map((entry, index) => (
