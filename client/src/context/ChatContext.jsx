@@ -10,6 +10,8 @@ const ContextProvider = (props) => {
   // Ref for scrolling to messages
   const messageRefs = useRef([]);
 
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL
+
   // Initialize global timeout array
   if (!window.currentTypewriterTimeouts) window.currentTypewriterTimeouts = [];
 
@@ -44,7 +46,7 @@ const ContextProvider = (props) => {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/chat", {
+      const res = await fetch(`${SERVER_URL}/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userMessage: currentPrompt }),
