@@ -4,6 +4,8 @@ import MoodHistory from "./MoodHistory";
 import LoginButton from "../../components/Login/LoginButton";
 import { auth } from "../../firebase/firebaseConfig";
 import { saveMood, fetchUserMoods } from "../../firebase/firestore";
+import { firebaseConfig } from "../../firebase/firebaseConfig";
+
 
 const moodEmojis = ["😢", "😕", "😐", "😊", "😄"];
 const moodLabels = ["Terrible", "Bad", "Okay", "Good", "Great"];
