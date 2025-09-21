@@ -292,3 +292,55 @@
     font-size: 14px;
   }
 }
+
+/* --Responsiveness-- */
+@media (max-width: 900px) {
+  .main-container {
+    padding: 0 15px;
+  }
+  .main-bottom {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 500px) {
+  .greet {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+    font-size: 4vw;
+  }
+
+  .greet-bot {
+    width: 120px;
+  }
+
+  .left-group .logo-text {
+    margin-left: -8px;
+    margin-top: 5px;
+    font-size: 1em;
+  }
+
+  .search-box input {
+    font-size: 16px;
+    padding: 6px;
+  }
+
+  .search-box img {
+    width: 18px;
+  }
+
+  .disclaimer {
+    font-size: 12px;
+    padding: 0 5px;
+  }
+
+  .user-msg p, .ai-msg p {
+    max-width: 80%;
+    font-size: 15px;
+  }
+
+  .reassurance-message {
+    max-width: 90%;
+  }
+}

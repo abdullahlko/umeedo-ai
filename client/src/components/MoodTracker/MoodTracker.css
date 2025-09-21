@@ -161,3 +161,26 @@ body {
 .login-button-container {
   margin-top: 0.5rem;
 }
+
+/* --Responsiveness-- */
+@media (max-width: 480px) {
+  .mood-tracker-container {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .mood-options button {
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+  }
+
+  textarea {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
+  .button-group button {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+}

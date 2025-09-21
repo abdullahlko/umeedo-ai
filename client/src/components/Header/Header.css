@@ -14,7 +14,6 @@
   transition: background-color 0.3s ease;
 }
 
-
 .logo {
   display: flex;
   align-items: center;
@@ -64,6 +63,7 @@
   transform: translateY(-2px);
 }
 
+/* --Responsiveness-- */
 @media (max-width: 768px) {
   .logo-text p {
     display: none;
