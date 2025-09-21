@@ -1,27 +1,41 @@
-import { db } from "./firebaseConfig";
-import { doc, setDoc, collection, getDocs, query, orderBy } from "firebase/firestore";
 
-// Save one mood per user per day
-export const saveMood = async (uid, moodEntry) => {
-  if (!uid) return;
+import { doc, deleteDoc, setDoc, collection, getDocs } from "firebase/firestore";
+import { db } from "./firebaseConfig";
+
+// Save mood to Firestore
+export const saveMood = async (userId, moodData) => {
   try {
-    const moodDocRef = doc(collection(db, "users", uid, "moods"), moodEntry.date);
-    await setDoc(moodDocRef, moodEntry); // overwrite existing
-  } catch (err) {
-    console.error("Error saving mood:", err);
+    const moodRef = doc(db, "users", userId, "moods", moodData.date);
+    await setDoc(moodRef, moodData);
+    console.log("Mood saved successfully");
+  } catch (error) {
+    console.error("Error saving mood:", error);
+    throw error;
   }
 };
 
-// Fetch all moods for a user
-export const fetchUserMoods = async (uid) => {
-  if (!uid) return [];
+// Fetch user moods from Firestore
+export const fetchUserMoods = async (userId) => {
   try {
-    const moodsCol = collection(db, "users", uid, "moods");
-    const q = query(moodsCol, orderBy("date", "asc"));
-    const snapshot = await getDocs(q);
-    return snapshot.docs.map(doc => doc.data());
-  } catch (err) {
-    console.error("Error fetching moods:", err);
+    const moodsRef = collection(db, "users", userId, "moods");
+    const snapshot = await getDocs(moodsRef);
+    return snapshot.docs
+      .map(doc => doc.data())
+      .filter(mood => mood.mood !== null && mood.mood !== undefined); // Filter out cleared moods
+  } catch (error) {
+    console.error("Error fetching moods:", error);
     return [];
+  }
+};
+
+// Delete mood from Firestore
+export const deleteMood = async (userId, date) => {
+  try {
+    const moodRef = doc(db, "users", userId, "moods", date);
+    await deleteDoc(moodRef);
+    console.log("Mood deleted successfully");
+  } catch (error) {
+    console.error("Error deleting mood:", error);
+    throw error;
   }
 };

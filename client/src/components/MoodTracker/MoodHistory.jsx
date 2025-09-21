@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import {
   LineChart,
   Line,
@@ -9,40 +9,32 @@ import {
   ResponsiveContainer
 } from "recharts";
 
-const MoodHistory = ({ moodHistory }) => {
-  const moodEmojis = ["😢", "😕", "😐", "😊", "😄"];
+const moodEmojis = ["😢", "😕", "😐", "😊", "😄"];
 
-  const chartData = moodHistory
-    .sort((a, b) => {
-      const dateA = a.date.toDate ? a.date.toDate() : new Date(a.date);
-      const dateB = b.date.toDate ? b.date.toDate() : new Date(b.date);
-      return dateA.getTime() - dateB.getTime();
-    })
-    .map((entry, index) => {
-      const dateObj = entry.date.toDate ? entry.date.toDate() : new Date(entry.date);
-      return {
+const MoodHistory = ({ moodHistory }) => {
+  const chartData = useMemo(() =>
+    [...moodHistory]
+      .sort((a, b) => new Date(a.date) - new Date(b.date))
+      .map((entry, index) => ({
         index: index + 1,
         mood: entry.mood,
-        date: dateObj.toLocaleDateString(),
-        label: entry.label,
-        note: entry.note,
-      };
-    });
+        date: new Date(entry.date).toLocaleDateString("en-GB", { day: "2-digit", month: "short" }),
+        label: entry.label || "",
+        note: entry.note || "",
+      })),
+    [moodHistory]
+  );
+
+  if (!chartData.length) return null;
 
   return (
-    <div style={{ width: "100%", height: 300, marginTop: "2rem" }}>
+    <div className="mood-history-card" style={{ width: "100%", marginTop: "2rem" }}>
       <h3>Your Mood History</h3>
-
-      {chartData.length === 0 ? (
-        <p>No mood history yet.</p>
-      ) : (
+      <div style={{ width: "100%", height: 300 }}>
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart
-            data={chartData}
-            margin={{ top: 20, right: 20, left: 20, bottom: 20 }}
-          >
+          <LineChart data={chartData} margin={{ top: 20, right: 20, left: 20, bottom: 40 }}>
             <CartesianGrid stroke="#f0f0f0" />
-            <XAxis dataKey="date" />
+            <XAxis dataKey="date" angle={-30} textAnchor="end" interval="preserveStartEnd" />
             <YAxis
               type="number"
               domain={[1, 5]}
@@ -50,21 +42,24 @@ const MoodHistory = ({ moodHistory }) => {
               tickFormatter={(tick) => moodEmojis[tick - 1]}
             />
             <Tooltip
-              formatter={(value, name, props) => {
-                const entry = props.payload;
-                return [`${entry.label} (${entry.note || "No note"})`, `Mood on ${entry.date}`];
+              content={({ active, payload }) => {
+                if (active && payload && payload.length) {
+                  const entry = payload[0].payload;
+                  return (
+                    <div style={{ background: "white", border: "1px solid #ccc", borderRadius: 6, padding: 8, fontSize: "0.9rem" }}>
+                      <strong>{entry.date}</strong><br />
+                      Mood: {entry.label} {moodEmojis[entry.mood - 1]}<br />
+                      Note: {entry.note || "No note"}
+                    </div>
+                  );
+                }
+                return null;
               }}
             />
-            <Line
-              type="monotone"
-              dataKey="mood"
-              stroke="#FF6B6B"
-              strokeWidth={3}
-              dot={{ r: 6 }}
-            />
+            <Line type="monotone" dataKey="mood" stroke="#FF6B6B" strokeWidth={3} dot={{ r: 6 }} />
           </LineChart>
         </ResponsiveContainer>
-      )}
+      </div>
     </div>
   );
 };
