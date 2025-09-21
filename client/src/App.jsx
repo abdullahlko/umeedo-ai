@@ -3,6 +3,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LandingPage from "./pages/Landing/LandingPage";
 import ChatPage from "./pages/Chat/ChatPage";
 import MoodTrackerPage from "./pages/MoodTracker/MoodTrackerPage";
+import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
+import Terms from "./pages/Terms/Terms";
+import Contact from "./pages/Contact/Contact";
 
 const router = createBrowserRouter([
   {
@@ -14,9 +17,21 @@ const router = createBrowserRouter([
     element: <ChatPage />,
   },
   {
-    path: "/mood-tracker",          
+    path: "/mood-tracker",
     element: <MoodTrackerPage />,
-  }
+  },
+  {
+    path: "/privacy",
+    element: <PrivacyPolicy />,
+  },
+  {
+    path: "/terms",
+    element: <Terms />,
+  },
+  {
+    path: "/contact",
+    element: <Contact />,
+  },
 ]);
 
 const App = () => <RouterProvider router={router} />;
