@@ -31,7 +31,8 @@ Developed for the Google GenAI Exchange Hackathon 2025, Umeedo provides a safe, 
 - Log and track moods using Mood Compass  
 - Access Privacy, Terms, and Contact pages  
 
-**MVP Limitation:** Only “Chat with Me” and “Mood Compass” features are currently available.
+**MVP Limitation:** Currently, only the “Chat with Me” and “Mood Compass” features are available.
+
 
 ---
 
@@ -134,14 +135,13 @@ npm run dev
 > Open the frontend at `http://localhost:5173` and backend at your configured port.  
 
 ---
----
 
-##Chat Feature Screenshots
+## Chat Feature Screenshots
 
-###Chat Call-To-Action (CTA)
+### Chat Call-To-Action (CTA)
 ![Chat CTA](./readme_assets/chat_cta.png)
 
-###Chat Window
+### Chat Window
 ![Chat Window](./readme_assets/chat_window.png)
 
 ### Example AI Response
@@ -152,4 +152,5 @@ npm run dev
 ## Author & Contact
 
 **[Abdullah Ansari]** – Developer of Umeedo AI  
-[LinkedIn](https://www.linkedin.com/in/abdullahlko) | [GitHub](https://github.com/abdullahlko) | your.email@example.com
+[LinkedIn](https://www.linkedin.com/in/abdullahlko) | [GitHub](https://github.com/abdullahlko)
+
