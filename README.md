@@ -151,6 +151,6 @@ npm run dev
 
 ## Author & Contact
 
-**[Abdullah Ansari]** – Developer of Umeedo AI  
+**Abdullah Ansari** – Developer of Umeedo AI  
 [LinkedIn](https://www.linkedin.com/in/abdullahlko) | [GitHub](https://github.com/abdullahlko)
 
