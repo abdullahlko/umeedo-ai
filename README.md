@@ -6,16 +6,17 @@
 ---
 
 ## Table of Contents
-1. Overview  
-2. Problem Statement  
-3. Solution  
-4. Features  
-5. Tech Stack  
-6. Project Structure  
-7. Project Architecture  
-8. Getting Started  
-9. Chat Feature Screenshots  
-10. Author / Contact  
+1. [Overview](#overview)  
+2. [Problem Statement](#problem-statement)  
+3. [Solution](#solution)  
+4. [Features](#features)  
+5. [Tech Stack](#tech-stack)  
+6. [Project Structure](#project-structure)  
+7. [Project Architecture](#project-architecture)  
+8. [Getting Started](#getting-started)  
+9. [Chat Feature Screenshots](#chat-feature-screenshots)  
+10. [Author & Contact](#author--contact)  
+
 
 ---
 
