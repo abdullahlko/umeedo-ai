@@ -103,6 +103,9 @@ UMEEDO-AI
 │  ├─ index.js           # Express server entry
 │  ├─ package.json
 │  └─ .env               # Environment variables
+├─ .gitignore
+├─ readme_assets         # App Screenshots
+├─ README.md
 ```
 
 ---
