@@ -10,7 +10,7 @@ const ContextProvider = (props) => {
   // Ref for scrolling to messages
   const messageRefs = useRef([]);
 
-  const SERVER_URL = process.env.REACT_APP_SERVER_URL
+  const SERVER_URL = import.meta.env.VITE_SERVER_URL
 
   // Initialize global timeout array
   if (!window.currentTypewriterTimeouts) window.currentTypewriterTimeouts = [];
