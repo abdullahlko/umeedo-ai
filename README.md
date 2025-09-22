@@ -2,9 +2,7 @@
 
 ![Umeedo Logo](./readme_assets/hero_section.png)  
 *Your mental wellness companion – A confidential, empathetic AI for youth mental health.*  
-
-[![Google GenAI Exchange](https://img.shields.io/badge/Google%20GenAI%20Exchange-2025-orange)](https://genaihackathon.withgoogle.com)
-
+[![Made For Google GenAI Exchange 2025](https://img.shields.io/badge/Made%20For%20Google%20GenAI%20Exchange%20Hackathon-2025-orange)](https://genaihackathon.withgoogle.com)
 ---
 
 ## Table of Contents
