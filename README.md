@@ -144,12 +144,12 @@ npm run dev
 ###Chat Window
 ![Chat Window](./readme_assets/chat_window.png)
 
-### 🤖 Example AI Response
+### Example AI Response
 ![Umeedo Reply](./readme_assets/umeedo_reply.png)
 
 ---
 
-## ✉️ Author & Contact
+## Author & Contact
 
 **[Abdullah Ansari]** – Developer of Umeedo AI  
 [LinkedIn](https://www.linkedin.com/in/abdullahlko) | [GitHub](https://github.com/abdullahlko) | your.email@example.com
