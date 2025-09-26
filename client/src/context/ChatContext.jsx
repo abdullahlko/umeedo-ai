@@ -50,7 +50,7 @@ const ContextProvider = (props) => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userMessage: currentPrompt }),
-      });
+      }); 
 
       const data = await res.json();
       const reply = data.reply || "";
